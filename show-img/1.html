@@ -1,29 +1,43 @@
-<!-- 极致干净的图片展示页：无任何文字/控件，仅显示图片 -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title> <!-- 标题为空，浏览器标签也无文字 -->
+    <!-- 核心：微信友好的meta标签，解除内置浏览器限制 -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- 移动端基础适配，微信核心放行条件 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 禁止微信识别手机号/邮箱，避免误判为营销页面 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <!-- 告诉微信这是普通静态页，无需特殊处理 -->
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <!-- 页面标题非空，避免微信判定为异常页面（可自定义，也可留空） -->
+    <title>图片预览</title>
+    <!-- 原有图片样式保留，仅展示图片，无多余布局 -->
     <style>
-        /* 去掉页面所有边距，图片居中、自适应屏幕 */
-        * { margin: 0; padding: 0; }
-        body { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            min-height: 100vh; 
-            background: #fff; /* 背景白色，和图片融合 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            overflow: hidden;
         }
-        img { 
-            max-width: 100%; /* 图片最大宽度适配屏幕，不溢出 */
-            max-height: 100vh; /* 图片最大高度适配屏幕，不滚动 */
-            object-fit: contain; /* 保持图片比例，不变形 */
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            /* 禁止图片长按保存（可选，删除则允许长按） */
+            /* pointer-events: none; user-select: none; */
         }
     </style>
 </head>
 <body>
-    <!-- 替换为你的GitHub图片有效链接（RAW/CDN均可） -->
-    <img src="https://cdn.jsdelivr.net/gh/mhx123-mhx/my-image/1.jpg" alt="">
+    <!-- 唯一需要修改的地方：替换为你的GitHub图片有效链接（JSdelivr CDN/RAW均可） -->
+    <img src="https://cdn.jsdelivr.net/gh/mhx123-mhx/my-image/1.jpg" alt="图片预览" />
+    <!-- 🔴 重要：页面中禁止添加任何以下JS，否则会被微信拦截 -->
+    <!-- 禁止：window.location、setTimeout/setInterval刷新、iframe、跨域请求、自动下载等 -->
 </body>
 </html>
