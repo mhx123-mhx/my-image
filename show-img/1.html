@@ -1,0 +1,29 @@
+<!-- 极致干净的图片展示页：无任何文字/控件，仅显示图片 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title> <!-- 标题为空，浏览器标签也无文字 -->
+    <style>
+        /* 去掉页面所有边距，图片居中、自适应屏幕 */
+        * { margin: 0; padding: 0; }
+        body { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            background: #fff; /* 背景白色，和图片融合 */
+        }
+        img { 
+            max-width: 100%; /* 图片最大宽度适配屏幕，不溢出 */
+            max-height: 100vh; /* 图片最大高度适配屏幕，不滚动 */
+            object-fit: contain; /* 保持图片比例，不变形 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 替换为你的GitHub图片有效链接（RAW/CDN均可） -->
+    <img src="https://cdn.jsdelivr.net/gh/mhx123-mhx/my-image/1.jpg" alt="">
+</body>
+</html>
